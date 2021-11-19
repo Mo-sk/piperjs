@@ -3,7 +3,7 @@
     {
         "1" : 
         {
-            "filter" : "fcsdd",
+            "filter" : "read",
             "params" : ["./test"],
             "next" : "2"
         },
@@ -11,20 +11,17 @@
         "2" : 
         {
             "filter" : "capitalize",
-            "params" : ["<extra_param_1>"],
             "next" : "3"
         },
         "3" : 
         {
             "filter" : "reverse",
-            "params" : ["<extra_param_1>"],
             "next" : "4"
         },
         "4" : 
         {
             "filter" : "write",
-            "params" : ["<extra_param_1>", "<extra_param_2>"],
-            "next" : "5"
+            "params" : ["./toto.txt"],
         }
     }
 }
