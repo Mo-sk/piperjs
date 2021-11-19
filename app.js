@@ -22,6 +22,9 @@ function verification()
         throw new Error('La clef "steps" est manquante ou mal formatée.');
     }
 
+    let filters = {
+
+    }
 
     //Bonne valeur  
     for (steps in configFilters.steps) {
@@ -47,31 +50,11 @@ function verification()
             );
         }
 
+        //console.log(configFilters.steps[steps].params)
+        filters[configFilters.steps[steps].filter] = configFilters.steps[steps].params
     }
+    
+    return filters
 }
 
-function launch(filters)
-{
-    let filters = {"read" : ['test'], "capitalize": ['opuiiiii'], "reverse" : ['ouiidh fhcdsif dfcjio'], "write" : ['oui je texte', './output.txt'] }
-
-    for (let filter in filters){
-        switch (filter) {
-            case 'read':
-                readFilter(filters.read.toString());
-                break;
-            case 'capitalize': 
-                capitalizeFilter(filters.capitalize.toString());
-                break;
-            case 'reverse': 
-                reverseFilter(filters.reverse.toString());
-                break;
-            case 'write': 
-                writeFilter(filters.write.shift(), filters.write[0]);
-                break;
-            default : 
-                throw new Error('Aucune fonction ne correspond au filtre indiqué.')
-        }
-    };
-}
-
-launch()
+verification()
