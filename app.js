@@ -53,17 +53,20 @@ function verification()
     //Permet de compléter l'objet filters avec les filtres, leurs paramètres si il y en a, dans l'ordre suivant l'attribut next
     let varNext = 1
     for (let i = 1; i <= Object.keys(configFilters.steps).length; i++) {
+        if(!configFilters.steps[varNext]){
+            throw new Error('The order of next attributs is not correct.')
+        }
         filters[configFilters.steps[varNext].filter] = configFilters.steps[varNext].params
         varNext = configFilters.steps[varNext].next
     }
 
-    for (let filter in filters){
-        fs.existsSync(filter + ".js", (error) => {
-            if (error) throw error;
-        });
-    };    
-    
-    displayFiltersAvailable(filters);
+    //for (let filter in filters){
+    //    fs.existsSync(filter + ".js", (error) => {
+    //        if (error) throw error;
+    //    });
+    //};    
+    //
+    //displayFiltersAvailable(filters);
 }
 
 function displayFiltersAvailable(filters)
