@@ -5,6 +5,9 @@ var reverseFilter = require("./filters/reverse");
 var writeFilter = require("./filters/write");
 const fs = require('fs')
 
+verification();
+displayFiltersAvailable();
+launch(filters)
 
 function verification()
 {
@@ -48,12 +51,33 @@ function verification()
         }
 
     }
+
+    for (let filter in filters){
+        switch (filter) {
+            case 'read':
+                break;
+            case 'capitalize': 
+                break;
+            case 'reverse': 
+                break;
+            case 'write': 
+                break;
+            default : 
+                throw new Error('Aucune fonction ne correspond au filtre indiqué.')
+        }
+    };
+}
+
+function displayFiltersAvailable(filters)
+{
+    console.log('Les filtres disponibles sont : ')
+    for (let filter in filters){
+        console.log('- ' + filter)
+    }
 }
 
 function launch(filters)
 {
-    let filters = {"read" : ['test'], "capitalize": ['opuiiiii'], "reverse" : ['ouiidh fhcdsif dfcjio'], "write" : ['oui je texte', './output.txt'] }
-
     for (let filter in filters){
         switch (filter) {
             case 'read':
@@ -73,5 +97,3 @@ function launch(filters)
         }
     };
 }
-
-launch()
