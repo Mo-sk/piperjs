@@ -4,7 +4,7 @@
         "1" : 
         {
             "filter" : "read",
-            "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
+            "params" : ["./test"],
             "next" : "2"
         },
 

@@ -1,9 +1,9 @@
 // Imports
-var readFilter = require ("./filters/read.js");
+var readFilter = require ("./filters/read");
+var capitalizeFilter = require("./filters/capitalize");
+var reverseFilter = require("./filters/reverse");
+var writeFilter = require("./filters/write");
 const fs = require('fs')
-
-// Test import READ.JS
-//console.log(readFilter('./test'));
 
 
 function verification()
@@ -28,10 +28,29 @@ function verification()
     }
 }
 
-//Test présence trois clés par index
-for(steps in Object.keys(configFilters.steps)){
-    //console.log(configFilters.steps.)
-}
-//console.log(configFilters)
+function launch(filters)
+{
+    let filters = {"read" : ['test'], "capitalize": ['opuiiiii'], "reverse" : ['ouiidh fhcdsif dfcjio'], "write" : ['oui je texte', './output.txt'] }
 
-myArray.find(x => x.id === '45').foo;
+    for (let filter in filters){
+        switch (filter) {
+            case 'read':
+                readFilter(filters.read.toString());
+                break;
+            case 'capitalize': 
+                capitalizeFilter(filters.capitalize.toString());
+                break;
+            case 'reverse': 
+                reverseFilter(filters.reverse.toString());
+                break;
+            case 'write': 
+                writeFilter(filters.write.shift(), filters.write[0]);
+                break;
+            default : 
+                throw new Error('Aucune fonction ne correspond au filtre indiqué.')
+        }
+    };
+}
+
+
+launch()
