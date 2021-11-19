@@ -7,3 +7,11 @@ Ouais ouais ouais, trop cool ce TD.
 Ouais ouais ouais, trop cool ce TD.
 Ouais ouais ouais, trop cool ce TD.
 uysefyi
+
+
+-> présence du fichier config-filters
+-> présence "steps"
+-> index présent 
+-> 3 clefs par index 
+-> Bonne valeur + une valeur associée
+-> filter = filter existant 

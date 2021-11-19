@@ -7,3 +7,4 @@ module.exports = (path) => {
         return data.toString();
     });
 }
+
