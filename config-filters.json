@@ -1,0 +1,24 @@
+{
+    "steps" : 
+    {
+        "1" : 
+        {
+            "filter" : "<filter_1>",
+            "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
+            "next" : "2"
+        },
+
+        "2" : 
+        {
+            "filter" : "<filter_2>",
+            "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
+            "next" : "3"
+        },
+        "3" : 
+        {
+            "filter" : "<filter_3>",
+            "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
+            "next" : "3"
+        }
+    }
+}
