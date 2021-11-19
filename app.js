@@ -15,16 +15,38 @@ function verification()
         throw new Error('Fichier config-filters.json introuvable.');
     }
 
-    var configFilters = require ("./config-filters.json");
+    let configFilters = require ("./config-filters.json");
 
     // Verification de la clef "steps"
     if(!configFilters.steps){
         throw new Error('La clef "steps" est manquante ou mal formatée.');
     }
 
-    // Vérification de la présence d'index
-    if(Object.keys(configFilters.steps).length === 0){
-        throw new Error('Aucune tâche n\'a été configurée');
+
+    //Bonne valeur  
+    for (steps in configFilters.steps) {
+
+        //vérification filter
+        if(!configFilters.steps[steps].filter) {
+            throw new Error("je suis une erreur")
+        }
+
+        //vérification du nombre de paramètres
+        if(Object.keys(configFilters.steps[steps]).length > 3){
+            throw new Error("Fichier config-filters.json mal configuré (certains steps ont plus de 3 clés).");
+        }
+        
+        //vérification du nom des attributs dans le cas ou la step contient plus que le simple attribut filter
+        if(Object.keys(configFilters.steps[steps]).length > 1) {
+            Object.keys(configFilters.steps[steps]).forEach(function(y) 
+                { 
+                    if (y != "filter" && y != "params" && y != "next") {
+                        throw new Error("Un ou plusieurs attributs est mal nommé")
+                    }
+                }
+            );
+        }
+
     }
 }
 
@@ -51,6 +73,5 @@ function launch(filters)
         }
     };
 }
-
 
 launch()

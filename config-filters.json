@@ -10,20 +10,20 @@
 
         "2" : 
         {
-            "filter" : "<filter_2>",
-            "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
+            "filter" : "capitalize",
+            "params" : ["<extra_param_1>"],
             "next" : "3"
         },
         "3" : 
         {
-            "filter" : "<filter_3>",
-            "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
+            "filter" : "reverse",
+            "params" : ["<extra_param_1>"],
             "next" : "4"
         },
         "4" : 
         {
-            "filter" : "<filter_3>",
-            "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
+            "filter" : "write",
+            "params" : ["<extra_param_1>", "<extra_param_2>"],
             "next" : "5"
         }
     }
