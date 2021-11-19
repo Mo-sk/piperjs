@@ -48,9 +48,13 @@ function verification()
                 }
             );
         }
+    }
 
-        //console.log(configFilters.steps[steps].params)
-        filters[configFilters.steps[steps].filter] = configFilters.steps[steps].params
+    //Permet de compléter l'objet filters avec les filtres, leurs paramètres si il y en a, dans l'ordre suivant l'attribut next
+    let varNext = 1
+    for (let i = 1; i <= Object.keys(configFilters.steps).length; i++) {
+        filters[configFilters.steps[varNext].filter] = configFilters.steps[varNext].params
+        varNext = configFilters.steps[varNext].next
     }
 
     for (let filter in filters){
