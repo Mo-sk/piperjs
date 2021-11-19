@@ -30,7 +30,7 @@ function verification()
 
         //vérification filter
         if(!configFilters.steps[steps].filter) {
-            throw new Error("je suis une erreur")
+            throw new Error('La paramètre filter renseigné est vide.')
         }
 
         //vérification du nombre de paramètres
