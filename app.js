@@ -60,13 +60,13 @@ function verification()
         varNext = configFilters.steps[varNext].next
     }
 
-    //for (let filter in filters){
-    //    fs.existsSync(filter + ".js", (error) => {
-    //        if (error) throw error;
-    //    });
-    //};    
-    //
-    //displayFiltersAvailable(filters);
+    for (let filter in filters){
+        fs.existsSync(filter + ".js", (error) => {
+            if (error) throw error;
+        });
+    };    
+    
+    displayFiltersAvailable(filters);
 }
 
 function displayFiltersAvailable(filters)
