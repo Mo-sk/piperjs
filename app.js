@@ -57,6 +57,7 @@ function verification()
         varNext = configFilters.steps[varNext].next
     }
 
+    // Vérification de la présence de la fonction associée au filtre
     for (let filter in filters){
         fs.existsSync(filter + ".js", (error) => {
             if (error) throw error;
@@ -78,23 +79,22 @@ function displayFiltersAvailable(filters)
 
 function launch(filters)
 { 
-    let readResult = '';
-    let capitalizeResult = '';
-    let reverseResult = '';
+    let result = '';
 
     for (let filter in filters){
+        console.log(result)
         switch (filter) {
             case 'read':
-                readResult = readFilter(filters.read.toString());
+                result = readFilter(filters.read.toString());
                 break;
             case 'capitalize': 
-                capitalizeResult = capitalizeFilter(readResult);
+                result = capitalizeFilter(result);
                 break;
             case 'reverse': 
-                reverseResult = reverseFilter(capitalizeResult);
+                result = reverseFilter(result);
                 break;
             case 'write': 
-                writeFilter(filters.write.shift(), filters.write[0]);
+                writeFilter(result, filters.write[0]);
                 break;
             default : 
                 throw new Error('Aucune fonction ne correspond au filtre indiqué.')

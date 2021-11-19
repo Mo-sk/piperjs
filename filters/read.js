@@ -1,10 +1,16 @@
 const fs = require("fs");
 
 module.exports = (path) => {
-    fs.readFileSync(path + ".txt", (error, data) => {
+
+    fs.existsSync(path + ".txt", (error) => {
         if (error) throw error;
-
-        return data.toString();
     });
-}
 
+    const data = fs.readFileSync(path + '.txt', {encoding:'utf8', flag:'r'});
+
+    if(data.length == 0){
+        throw new Error('Le fichier fourni est vide.');
+    }
+
+    return data;
+}
