@@ -54,7 +54,7 @@ function verification()
     let varNext = 1
     for (let i = 1; i <= Object.keys(configFilters.steps).length; i++) {
         if(!configFilters.steps[varNext]){
-            throw new Error('The order of next attributs is not correct.')
+            throw new Error('Les attributs ne respectent pas un ordre correct.')
         }
         filters[configFilters.steps[varNext].filter] = configFilters.steps[varNext].params
         varNext = configFilters.steps[varNext].next
