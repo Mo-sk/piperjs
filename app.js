@@ -6,8 +6,6 @@ var writeFilter = require("./filters/write");
 const fs = require('fs')
 
 verification();
-displayFiltersAvailable();
-launch(filters)
 
 function verification()
 {
@@ -25,6 +23,7 @@ function verification()
         throw new Error('La clef "steps" est manquante ou mal formatée.');
     }
 
+    let filters = {}
 
     //Bonne valeur  
     for (steps in configFilters.steps) {
@@ -50,6 +49,8 @@ function verification()
             );
         }
 
+        //console.log(configFilters.steps[steps].params)
+        filters[configFilters.steps[steps].filter] = configFilters.steps[steps].params
     }
 
     for (let filter in filters){
@@ -65,7 +66,9 @@ function verification()
             default : 
                 throw new Error('Aucune fonction ne correspond au filtre indiqué.')
         }
-    };
+    };    
+    
+    displayFiltersAvailable(filters);
 }
 
 function displayFiltersAvailable(filters)
@@ -74,6 +77,8 @@ function displayFiltersAvailable(filters)
     for (let filter in filters){
         console.log('- ' + filter)
     }
+
+    launch(filters);
 }
 
 function launch(filters)
