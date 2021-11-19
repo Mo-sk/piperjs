@@ -3,7 +3,7 @@
     {
         "1" : 
         {
-            "filter" : "<filter_1>",
+            "filter" : "read",
             "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
             "next" : "2"
         },
@@ -18,7 +18,13 @@
         {
             "filter" : "<filter_3>",
             "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
-            "next" : "3"
+            "next" : "4"
+        },
+        "4" : 
+        {
+            "filter" : "<filter_3>",
+            "params" : ["<extra_param_1>", "<extra_param_2>", "<extra_param_3>"],
+            "next" : "5"
         }
     }
 }
