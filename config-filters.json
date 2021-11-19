@@ -3,7 +3,7 @@
     {
         "1" : 
         {
-            "filter" : "read",
+            "filter" : "fcsdd",
             "params" : ["./test"],
             "next" : "2"
         },
