@@ -54,18 +54,9 @@ function verification()
     }
 
     for (let filter in filters){
-        switch (filter) {
-            case 'read':
-                break;
-            case 'capitalize': 
-                break;
-            case 'reverse': 
-                break;
-            case 'write': 
-                break;
-            default : 
-                throw new Error('Aucune fonction ne correspond au filtre indiqué.')
-        }
+        fs.existsSync(filter + ".js", (error) => {
+            if (error) throw error;
+        });
     };    
     
     displayFiltersAvailable(filters);
@@ -82,17 +73,21 @@ function displayFiltersAvailable(filters)
 }
 
 function launch(filters)
-{
+{ 
+    let readResult = '';
+    let capitalizeResult = '';
+    let reverseResult = '';
+
     for (let filter in filters){
         switch (filter) {
             case 'read':
-                readFilter(filters.read.toString());
+                readResult = readFilter(filters.read.toString());
                 break;
             case 'capitalize': 
-                capitalizeFilter(filters.capitalize.toString());
+                capitalizeResult = capitalizeFilter(readResult);
                 break;
             case 'reverse': 
-                reverseFilter(filters.reverse.toString());
+                reverseResult = reverseFilter(capitalizeResult);
                 break;
             case 'write': 
                 writeFilter(filters.write.shift(), filters.write[0]);

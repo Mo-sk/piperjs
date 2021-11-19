@@ -1,9 +1,9 @@
 const fs = require("fs");
 
 module.exports = (path) => {
-    fs.readFile(path + ".txt", (error, data) => {
+    fs.readFileSync(path + ".txt", (error, data) => {
         if (error) throw error;
-        //console.log(data.toString())
+
         return data.toString();
     });
 }
